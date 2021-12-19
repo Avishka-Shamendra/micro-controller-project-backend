@@ -18,7 +18,7 @@ PARAM_HUMIDITY_STD_DEV_NAME="HUMIDITY_STD"
 PARAM_PRESSURE_MEAN_NAME="PRESSURE_MEAN"
 PARAM_PRESSURE_STD_DEV_NAME="PRESSURE_STD"
 PARAM_LIGHT_MEAN_NAME="LIGHT_MEAN"
-PARAM_LIGHT_STD_DEV_NAME="LIGHTSTD"
+PARAM_LIGHT_STD_DEV_NAME="LIGHT_STD"
 
 app.debug = DEBUG
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
@@ -30,7 +30,7 @@ migrate = Migrate(app, db)
 class SensorData(db.Model):
     __tablename__ = 'sensor_data'
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     temperature_mean = db.Column(db.Float)
     temperature_std_dev = db.Column(db.Float)
     humidity_mean = db.Column(db.Float)
@@ -65,7 +65,7 @@ class SensorData(db.Model):
     @staticmethod
     def addNewRow(timestamp,params):
         
-        timestamp = timestamp
+        timestamp = str(timestamp)
 
         temperature_mean = float(params[PARAM_TEMP_MEAN_NAME])
         temperature_std_dev = float(params[PARAM_TEMP_STD_DEV_NAME])
@@ -84,8 +84,10 @@ class SensorData(db.Model):
             light_mean, light_std_dev)
             db.session.add(obj)
             db.session.commit()
+            print('OKKKK')
             return True
-        except:
+        except Exception as e:
+            print(e)
             return False
 
 @app.route('/')
