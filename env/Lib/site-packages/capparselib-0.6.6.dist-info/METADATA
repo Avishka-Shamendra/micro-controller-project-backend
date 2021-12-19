@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: capparselib
+Version: 0.6.6
+Summary: A module to parse and standardise CAP feeds
+Home-page: UNKNOWN
+Author: Kelvin Nicholson
+Author-email: kelvin@kelvinism.com
+License: UNKNOWN
+Platform: posix
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: lxml (==4.6.3)
+Requires-Dist: python-dateutil (==2.8.2)
+Provides-Extra: tests
+Requires-Dist: chardet ; extra == 'tests'
+Requires-Dist: parameterized ; extra == 'tests'
+Requires-Dist: coverage ; extra == 'tests'
+Requires-Dist: coveralls (>=3.0.0) ; extra == 'tests'
+Requires-Dist: invoke ; extra == 'tests'
+Requires-Dist: nose ; extra == 'tests'
+Requires-Dist: twine ; extra == 'tests'
+Requires-Dist: chardet (>=4.0.0) ; extra == 'tests'
+
+This module provides the ability to parse Common Alerting Protocol (CAP) feeds and standardise the resources into a dict, regardless if it was a 1.1 or 1.2 specification. Additional details can be found on the project's GitHub README:  https://github.com/kelvinn/capparselib
+
+

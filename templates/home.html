@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+     href="https://cdn.datatables.net/v/bs4/dt-1.10.22/fh-3.1.7/kt-2.5.3/r-2.2.6/sc-2.0.3/sp-1.2.1/datatables.min.css" />
+    <title>Micro Project</title>
+</head>
+<body class="container p-4">
+    <h2 class='text-center'>180594V Micro Controller Project - Dashboard</h2>
+
+<table class="table table-sm" id="table">
+<thead>
+  <tr>
+    <th>Temparature Mean</th>
+    <th>Temparature Standard Deviation</th> 
+    <th>Humidity Mean</th>
+    <th>Humidity Standard Deviation</th> 
+    <th>Presure Mean</th>
+    <th>Presure Standard Deviation</th> 
+    <th>light intensity Mean</th>
+    <th>light intensity Standard Deviation</th> 
+
+  </tr>
+</thead>
+<tbody>
+    {% for record in records %}
+    <tr>
+        <td>{{ record['temperature_mean'] }}</td>
+        <td>{{ record['temperature_std_dev'] }}</td>
+        <td>{{ record['humidity_mean'] }}</td>
+        <td>{{ record['humidity_std_dev'] }}</td>
+        <td>{{ record['pressure_mean'] }}</td>
+        <td>{{ record['pressure_std_dev'] }}</td>
+        <td>{{ record['light_mean'] }}</td>
+        <td>{{ record['light_std_dev'] }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+</body>
+</html>
