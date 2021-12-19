@@ -27,6 +27,8 @@ app.config[sqlAlchemyconfigure] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+
+#model class
 class SensorData(db.Model):
     __tablename__ = 'sensor_data'
 
@@ -95,7 +97,7 @@ def index():
     records = SensorData.query.order_by(desc(SensorData.timestamp)).limit(5).all()
     return render_template("home.html", records=records)
 
-@app.route('/upload', methods=['POST'])
+@app.route('/update', methods=['POST'])
 def post():
     alert_list = CAPParser(request.data.decode('utf-8')).as_dict()
     alert = alert_list[0]
